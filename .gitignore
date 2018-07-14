@@ -24,3 +24,8 @@
 public/app.js
 public/index.html
 .env
+
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
