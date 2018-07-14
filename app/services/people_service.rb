@@ -25,7 +25,9 @@ class PeopleService
     duplicates = {}
 
     @people.each_with_index do |a, i|
-      @people.each_with_index do |b, j|
+      j = i + 1
+      while j < @people.count
+        b = @people[j]
         a_email = a.email
         b_email = b.email
         next if a_email.nil? || b_email.nil? || i == j
@@ -38,11 +40,14 @@ class PeopleService
           if duplicates.key?(a_email)
             unless duplicates[a_email].include?(b_email)
               duplicates[a_email] << b_email
+              duplicates[b_email] << a_email
             end
           else
             duplicates[a_email] = [b_email]
+            duplicates[b_email] = [a_email]
           end
         end
+        j += 1
       end
     end
 
