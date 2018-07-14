@@ -25,4 +25,5 @@ config.webpacker.check_yarn_integrity = true
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_controller.asset_host = "#{ENV['PUBLIC_URL']}:#{ENV['PORT'].to_i - 1}"
+  config.autoload_paths += %W( #{config.root}/services )
 end
