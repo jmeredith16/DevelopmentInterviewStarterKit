@@ -16,9 +16,7 @@ module API
     end
 
     def self.build_url(protocol = "https", uri, parameters)
-      url = "#{protocol}://#{uri}?#{parameters.map { |k, v| "#{k}=#{v}" }.join('&')}"
-      puts url
-      url
+      "#{protocol}://#{uri}?#{parameters.map { |k, v| "#{k}=#{v}" }.join('&')}"
     end
   end
 end
