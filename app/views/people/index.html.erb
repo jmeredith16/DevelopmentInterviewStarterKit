@@ -60,7 +60,7 @@
       <% @duplicates.each do |k, v| %>
         <tr>
           <td colspan="10"><%= k %></td>
-          <td colspan="10"><%= v.join(', ') %></td>
+          <td colspan="10"><%= v.to_a.join(', ') %></td>
         </tr>
       <% end %>
     </tbody>

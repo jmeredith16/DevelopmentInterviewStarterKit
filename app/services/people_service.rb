@@ -38,13 +38,11 @@ class PeopleService
         # Edit distance of 0, 1, or 2 will be flagged
         if dl_dist < 3
           if duplicates.key?(a_email)
-            unless duplicates[a_email].include?(b_email)
-              duplicates[a_email] << b_email
-              duplicates[b_email] << a_email
-            end
+            duplicates[a_email] << b_email
+            duplicates[b_email] << a_email
           else
-            duplicates[a_email] = [b_email]
-            duplicates[b_email] = [a_email]
+            duplicates[a_email] = Set[b_email]
+            duplicates[b_email] = Set[a_email]
           end
         end
         j += 1
