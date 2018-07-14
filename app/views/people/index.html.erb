@@ -1,0 +1,74 @@
+<% if alert %>
+  <div class="alert flash-error"><%= alert %></div>
+<% end %>
+
+<div id="root">
+  <h1>People Table</h1>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="5">Id</th>
+        <th colspan="5">Name</th>
+        <th colspan="5">Email</th>
+        <th colspan="5">Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each_with_index do |person, i| %>
+        <tr>
+          <td colspan="5"><%= i + 1 %></td>
+          <td colspan="5"><%= person.name%></td>
+          <td colspan="5"><%= person.email %></td>
+          <td colspan="5"><%= person.title %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <!-- Paging is a good idea -->
+</div>
+
+<div id="character-count">
+  <h1>Character Count Table</h1>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="5">Character</th>
+        <th colspan="5">Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @characters.each do |k, v| %>
+        <tr>
+          <td colspan="5"><%= k %></td>
+          <td colspan="5"><%= v %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="duplicates">
+  <h1>Duplicates Table</h1>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="10">Original</th>
+        <th colspan="10">Possible Duplicates</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @duplicates.each do |k, v| %>
+        <tr>
+          <td colspan="10"><%= k %></td>
+          <td colspan="10"><%= v.join(', ') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<style type="text/css">
+  .flash-error{
+    color: red;
+  }
+</style>
